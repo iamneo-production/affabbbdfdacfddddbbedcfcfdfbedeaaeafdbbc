@@ -1,44 +1,39 @@
-// export interface CardProps {
-//     key : Number,
-//     question : String,
-//       option1 : String,
-//       option2 : String,
-//       option3 : String,
-//       option4 : String,
-//       answer : String,
+import '../../../index.css';
+import Button from '../Button/Button'
+import React from 'react';
 
-import React from "react";
+class Card extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isDisable:false
+        }
+    }
+    correctAnswerMarkUpdate=(e,value)=> {
+            if(this.props.answer===value)
+            {
+                this.props.onAnsChg()
+            }
+            this.setState({isDisable:true})
+            this.props.onQuesChg()
+        }
+    render() {
+        return (
 
-    
-// }
-
-const CardData = () => 
-{
-    const cardTest =  
-        {
-            Question: "What Color is are the leaves",
-            Answers: [
-                { Answer: "Blue", isCorrect: false },
-                { Answer: "Red", isCorrect: false },
-                { Answer: "Yellow", isCorrect: false },
-                { Answer: "Green", isCorrect: true }
-            ]
-        };
-    return <>
-    {cardTest}
-    </>;
-};
-
-
-class Card extends React.Component{
-    render(){
-        return <>
-        <h4>What color is are the leaves ?</h4>
-        <button>Blue</button>
-        <button>Red</button>
-        <button>Yellow</button>
-        <button>Green</button>
-        </>;
+            <div className="card">
+                <div className="main">
+                    <h4 className='question'>{this.props.question}</h4>
+                </div>
+                <div className="main">
+                    <div className="options">
+                        <Button className="btn" onClick={e=>this.correctAnswerMarkUpdate(e,this.props.options.option1)} disabled={this.state.isDisable} >{this.props.options.option1}</Button>
+                        <Button className="btn" onClick={e=>this.correctAnswerMarkUpdate(e,this.props.options.option2)} disabled={this.state.isDisable}>{this.props.options.option2}</Button>
+                        <Button className="btn" onClick={e=>this.correctAnswerMarkUpdate(e,this.props.options.option3)} disabled={this.state.isDisable}>{this.props.options.option3}</Button>
+                        <Button className="btn" onClick={e=>this.correctAnswerMarkUpdate(e,this.props.options.option4)} disabled={this.state.isDisable}>{this.props.options.option4}</Button>
+                    </div>
+                </div>
+            </div>
+        );
     }
 }
 

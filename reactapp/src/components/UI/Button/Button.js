@@ -1,18 +1,14 @@
+import '../../../index.css';
 import React from 'react';
 
-interface ButtonProps {
-    onClick: () => void;
-    text: string;
+
+
+const Button = (props)=>{
+    
+    return(
+            <button id={props.id} className={props.className} onClick={props.onClick} disabled={props.disabled} hidden={props.hidden} >{props.children}</button>
+        
+    )
 }
-
-const Button: React.FC<ButtonProps> = ({ onClick, text }) => {
-    const buttonText = text === "" ? "Button Works" : text;
-
-    return (
-        <button onClick={onClick}>
-            {buttonText}
-        </button>
-    );
-};
 
 export default Button;

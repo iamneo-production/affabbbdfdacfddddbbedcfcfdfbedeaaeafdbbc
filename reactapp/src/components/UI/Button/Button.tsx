@@ -1,6 +1,11 @@
 import React from 'react';
 
-const Button = ({ onClick, text }) => {
+interface ButtonProps {
+    onClick: () => void;
+    text: string;
+}
+
+const Button: React.FC<ButtonProps> = ({ onClick, text }) => {
     const buttonText = text === "" ? "Button Works" : text;
 
     return (

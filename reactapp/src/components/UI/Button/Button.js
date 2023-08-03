@@ -7,10 +7,10 @@ import { useState } from 'react';
 //     </>;
 // };
 
-interface ButtonProps {
-    onClick: () => void;
-    text : String;
-}
+// interface ButtonProps {
+//     onClick: () => void;
+//     text : String;
+// }
 const Button = (ButtonProps) => {
 
     
@@ -21,7 +21,7 @@ const Button = (ButtonProps) => {
             return text;
         }
     }
-    return (<button onClick = {ButtonProps.onClick}>{ButtonProps.children}</button>);
+    return (<button onClick = {() => {}}>{ButtonProps.children}</button>);
 }
 
 export default Button;
